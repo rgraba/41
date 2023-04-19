@@ -13,10 +13,13 @@ import java.util.Scanner;
 class Main {
   public static void main(String[] args) {
     try {
+      while(true){
       Scanner scanner = new Scanner(System.in);
       Service s = new Service();
         {
           System.out.println("1.Dodaj Studenta");
+          System.out.println("2.Wyświetl liste studentów");
+          System.out.println("0.Opuść program");
           int wybor = scanner.nextInt();
           switch(wybor)
             {
@@ -27,14 +30,19 @@ class Main {
                 int wiek = scanner.nextInt();
                 s.addStudent(new Student(imie, wiek));
                 break;
-              default:
-                System.out.println("Zły wybór");
-                break;
-            }
+              case 0:
+                System.exit(0);
+              case 2:
                 var students = s.getStudents();
                 for(Student current : students) {
                 System.out.println(current.ToString());
                 }
+                System.exit(0);
+              default:
+                System.out.println("Zły wybór");
+                break;
+            }
+          }
         }
     } catch (IOException e) { 
     }
