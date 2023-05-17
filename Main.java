@@ -6,9 +6,10 @@ Kod bazowy programu Commit4_0:
 • Klasa Service obsługuje odczyt i zapis do pliku bazy danych.
 • Klasa Student reprezentuje pojedynczego studenta (Imię, Wiek).
 */
-
 import java.io.IOException;
 import java.util.Scanner;
+
+
 
 class Main {
   public static void main(String[] args) {
@@ -30,7 +31,9 @@ class Main {
                 String nazwisko = scanner.next();
                 System.out.println("Podaj wiek:");
                 int wiek = scanner.nextInt();
-                s.addStudent(new Student(imie, nazwisko, wiek));
+                System.out.println("Podaj date urodzenia:");
+                String dataurodzenia = scanner.next();
+                s.addStudent(new Student(imie, nazwisko, wiek, dataurodzenia));
                 break;
               case 0:
                 System.exit(0);
@@ -38,10 +41,9 @@ class Main {
                 var students = s.getStudents();
                 for(Student current : students) {
                 System.out.println(current.ToString());
-                }
+            }
               default:
-                System.out.println("Zły wybór");
-                break;
+              break;
             }
           }
         }
